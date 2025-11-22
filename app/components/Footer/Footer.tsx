@@ -15,6 +15,7 @@ interface ContactInfo {
   fax: string;
 }
 
+
 interface OfficeHours {
   weekdays: string;
   weekend: string;

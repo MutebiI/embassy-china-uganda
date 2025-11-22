@@ -341,9 +341,40 @@ const ChinaUgandaRelations = () => {
             {t.subtitle}
           </p>
         </motion.div>
-
-        {/* Key Statistics */}
         <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-16"
+>
+  {keyStatistics.map((stat, index) => (
+    <motion.div
+      key={stat.label}
+      initial={{ opacity: 0, scale: 0 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -3, scale: 1.03 }}
+      className="bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6 shadow-lg border border-gray-200 group hover:shadow-xl transition-all duration-300 text-center" // Added text-center here
+    >
+      <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform">
+        <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white" />
+      </div>
+      <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mb-1 leading-none text-center"> {/* Added text-center here */}
+        {stat.metric}
+      </div>
+      <div className="text-xs sm:text-sm text-gray-600 leading-tight line-clamp-2 text-center"> {/* Added text-center here */}
+        {stat.label}
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+
+        {/* Key Statistics - FIXED VERSION */}
+  
+        {/* Key Statistics */}
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -367,7 +398,7 @@ const ChinaUgandaRelations = () => {
               <div className="text-xs sm:text-sm text-gray-600 leading-tight line-clamp-2">{stat.label}</div>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Historical Timeline */}
         <motion.div

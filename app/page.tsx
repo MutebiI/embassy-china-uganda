@@ -22,3 +22,7 @@ export default function Home() {
     </main>
   )
 }
+
+
+//China Uganda Relations 
+//
